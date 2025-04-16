@@ -28,6 +28,7 @@
   code:not(pre > code) {
     background-color: $--primary-text-color;
     color: $--bg-color;
+    font-family: 'Consolas', 'Monaco', monospace;
   }
 
   *:target {
@@ -49,6 +50,37 @@
   blockquote {
     border: thin solid $--primary-text-color;
   }
+
+  .highlight {
+    background-color: #B4F8C8;
+    pre {
+      background-color: #B4F8C8;
+      border: thin solid lighten($--primary-text-color, 70%);
+    }
+    
+    // Comments
+    .c, .c1, .cm, .cs {
+      color: mix($--primary-text-color, $--bg-color, 60%);
+      font-style: italic;
+    }
+    
+    // Keywords
+    .k, .kd, .kn, .kp, .kr, .kt {
+      color: $--link-color;
+      font-weight: bold;
+    }
+    
+    // Strings
+    .s, .s1, .s2, .sb, .sc {
+      color: $--visited-link-color;
+    }
+    
+    // Numbers
+    .m, .mi, .mf {
+      color: mix($--link-color, $--visited-link-color, 50%);
+    }
+  }
+
 }
 
 @mixin dark-appearance {
@@ -120,6 +152,7 @@ code {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  font-family: 'Consolas', 'Monaco', monospace;
 }
 
 code:not(pre > code) {
@@ -178,4 +211,18 @@ details[open] summary {
 
 .toc {
   padding: 1rem;
+}
+
+pre code {
+  font-size: 12px; // Decrease from the default 16px
+  // Or use relative sizing:
+  // font-size: 0.85em; // 85% of parent size
+}
+
+// You can also adjust the overall pre block
+pre {
+  font-size: 14px;
+  // Your existing styles remain
+  padding: 1em;
+  overflow-x: auto;
 }
